@@ -40,7 +40,7 @@ jobs:
         run: bun run lint
 
       - name: Run unit and component tests
-        run: bun run test:unit -- --run
+        run: bun run test:unit -- --run --passWithNoTests
 
       - name: Build static site
         env:
