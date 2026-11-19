@@ -6,6 +6,12 @@ import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
 
+const envBasePath = process.env.BASE_PATH;
+
+const basePath: '' | `/${string}` = envBasePath?.startsWith('/')
+	? (envBasePath as `/${string}`)
+	: '';
+
 export default defineConfig({
 	plugins: [
 		enhancedImages(),
@@ -21,7 +27,7 @@ export default defineConfig({
 				fallback: '404.html'
 			}),
 			paths: {
-				base: process.env.BASE_PATH ?? ''
+				base: basePath
 			}
 		})
 	],
