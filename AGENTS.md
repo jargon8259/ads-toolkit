@@ -434,3 +434,17 @@ When choosing between two reasonable implementations, prefer the one that keeps 
 - portable,
 - transparent about data handling,
 - and compatible with static deployment.
+
+## GitHub Pages compatibility
+
+ADS Toolkit is deployed as a GitHub Pages project site.
+
+Production builds may be served from a repository base path
+rather than the domain root.
+
+- Do not assume the application is hosted at `/`.
+- Use SvelteKit path utilities for internal application URLs.
+- Avoid hard-coded root-relative asset and navigation paths.
+- All new routes and assets must work when deployed beneath
+  the GitHub Pages repository path.
+- Changes must preserve static prerendering compatibility.
